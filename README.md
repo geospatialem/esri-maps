@@ -1,9 +1,6 @@
 Geogeeks Learn How to JavaScript
 =======
-Jacqueline and Kitty's repository to learn JavaScript. :-)
-
-###Map
-<a href="http://geospatialem.github.io/geogeeks-learn-js/"><img src="https://cloud.githubusercontent.com/assets/5023024/4987889/95a33d2a-691f-11e4-9d38-0b173859934e.png" alt="Project Name"></a>
+A repo designed to learn Esri's JavaScript API :stuck_out_tongue:
 
 ###GIS Developer References
 <ul><li><a href="https://developers.arcgis.com/javascript/">ArcGIS API for JavaScript</a></li>
