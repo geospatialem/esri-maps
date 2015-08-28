@@ -1,23 +1,32 @@
 var map;
 	require([
 	         "esri/map", 
+	         "esri/dijit/Search",
 	         "esri/dijit/HomeButton",
 	         "dojo/domReady!"
    ], 	
    
-function (Map, HomeButton) {
+function (mapDiv, searchBox, homeBtn) {
 	
-	var map = new Map("map", {
+	var mappy = new mapDiv ("map", {
 			basemap: "topo",
 			center: [-93.5, 46.5],
 			zoom: 6
 	});
 	
-	var home = new HomeButton ({ //Home Button
-	    map: map
+	/* Home button */
+	var homeButton = new homeBtn ({
+	    map: mappy
 	}, "HomeButton");
 	
-	//Startup
-	home.startup();
+	/* Search dialog box */
+	var searchDialog = new searchBox ({
+        enableButtonMode: true, //Display as a button on load
+		map: mappy
+     }, "search");
+	
+	/* On startup */
+	homeButton.startup();
+	searchDialog.startup();
 
 });
