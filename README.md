@@ -2,7 +2,7 @@
 A repo to hold Esri JavaScript resources in the form of maps.  :stuck_out_tongue:
 
 ## Maps  
-* [Esri JS API Template](/template): Testing
+* Esri JS API Template: [Repo](/template) / [Website](//geospatialem.github.io/esri-maps/template)
 
 ## GIS Developer References  
 * [ArcGIS API for JavaScript](//developers.arcgis.com/javascript)  
