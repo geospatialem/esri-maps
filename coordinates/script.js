@@ -3,6 +3,7 @@ var map, latitude, longitude;
 
 require([
   "esri/map",
+  "esri/dijit/Search",
   "esri/layers/ArcGISTiledMapServiceLayer",
   "esri/symbols/SimpleMarkerSymbol",
   "esri/graphic",
@@ -12,15 +13,25 @@ require([
  ],
 
 function (
-  map
+  mapDiv
 ){
 
-  map = map ("map", {
+  /* Map */
+  map = mapDiv ("map", {
     center: [-93.5, 46.5],
     zoom: 6,
     attributionWidth: 0.15,
     logo: false
   });
+
+  /* Search */
+   var search = esri.dijit.Search({
+     map: map,
+     enableButtonMode: "true",
+     expanded: "true"
+   }, "search");
+   search.startup();
+
 
   /* Add Aerial Reference Tile Services */
   var aerialReference = esri.layers.ArcGISTiledMapServiceLayer("//services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer");
@@ -29,12 +40,13 @@ function (
 
   //TODO: Move this outside the Esri JS Loop BS
   var latLngGraphic = esri.symbol.SimpleMarkerSymbol({
-    "size": 10,
+    "color": [255,0,0,100],
+    "size": 8,
     "type": "esriSMS",
-    "style": "esriSMSX",
+    "style": "esriSMSCircle",
     "outline": {
       "color": [255,0,0,255],
-      "width": 4
+      "width": 1
     }
   });
 
@@ -46,7 +58,6 @@ function (
       map.graphics.add(esri.Graphic(mapClick.mapPoint, latLngGraphic));
     })
   });
-
 
 });
 
