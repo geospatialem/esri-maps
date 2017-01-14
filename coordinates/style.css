@@ -14,26 +14,6 @@ html,
    display: block;
    position: absolute;
    z-index: 2;
-   top: 10px;
+   top: 25px;
    right: 10px;
-}
-
-#info {
-  text-align: center;
-  font-size: 18px;
-  position: absolute;
-  top: 50px;
-  right: 10px;
-  padding: 20px 15px 20px 15px;
-  color: #FFF;
-  background-color: #003865;
-  opacity: 0.8;
-  border: 0.5px solid #FFF;
-}
-#email-button {
-  font-size: 14px;
-  position: absolute;
-  top: 140px;
-  right: 15px;
-  padding: 5px 20px;
 }

@@ -7,7 +7,6 @@ require([
   "esri/layers/ArcGISTiledMapServiceLayer",
   "esri/symbols/SimpleMarkerSymbol",
   "esri/graphic",
-  "esri/geometry/webMercatorUtils",
   "dojo",
   "dojo/domReady!"
  ],
@@ -26,9 +25,7 @@ function (
 
   /* Search */
    var search = esri.dijit.Search({
-     map: map,
-     enableButtonMode: "true",
-     expanded: "true"
+     map: map
    }, "search");
    search.startup();
 
@@ -52,6 +49,7 @@ function (
 
   map.on("load", function() {
     map.on("click", showCoordinates);
+    map.infoWindow.resize(200,100);
     //TODO: Move this outside the Esri JS Loop BS
     map.on("click", function(mapClick) {
       map.graphics.clear();
@@ -62,13 +60,14 @@ function (
 });
 
 function showCoordinates(event) {
-  var latLng = esri.geometry.webMercatorToGeographic(event.mapPoint);
-  latitude = latLng.y.toFixed(4);
-  longitude = latLng.x.toFixed(4);
-  dojo.byId("info").innerHTML = "Latitude: " + latLng.y.toFixed(4) + "<br />Longitude: " + latLng.x.toFixed(4);
-}
-
-//TODO: Clean this up
-function openEmailWithCoordinates () {
-  window.location="mailto:?subject=Lat/Lng&body=Latitude: " + latitude + " Longitude: " + longitude;
+  latitude = event.mapPoint.getLatitude();
+  longitude = event.mapPoint.getLongitude();
+  map.infoWindow.setTitle("Coordinates");
+  map.infoWindow.setContent(
+    "Latitude: " + latitude.toFixed(4) +
+    "<br/>Longitude: " + longitude.toFixed(4) +
+    "<br/><a href='mailto:?subject=Latitude/Longitude&body=Latitude: " + latitude.toFixed(4) + " / Longitude: " + longitude.toFixed(4) + "'" +
+    "<br/><br/>E-mail Coordinates</a>"
+  );
+  map.infoWindow.show(event.mapPoint, map.getInfoWindowAnchor(event.screenPoint));
 }
