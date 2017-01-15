@@ -1,5 +1,5 @@
 //Globals
-var map, latitude, longitude;
+var map;
 
 require([
   "esri/map",
@@ -60,8 +60,8 @@ function (
 });
 
 function showCoordinates(event) {
-  latitude = event.mapPoint.getLatitude();
-  longitude = event.mapPoint.getLongitude();
+  var latitude = event.mapPoint.getLatitude();
+  var longitude = event.mapPoint.getLongitude();
   map.infoWindow.setTitle("Coordinates");
   map.infoWindow.setContent(
     "Latitude: " + latitude.toFixed(4) +
