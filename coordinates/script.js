@@ -66,7 +66,7 @@ function showCoordinates(event) {
   map.infoWindow.setContent(
     "Latitude: " + latitude.toFixed(4) +
     "<br/>Longitude: " + longitude.toFixed(4) +
-    "<br/><a href='mailto:?subject=Latitude/Longitude&body=Latitude: " + latitude.toFixed(4) + " %0D%0ALongitude: " + longitude.toFixed(4) + "'" +
+    "<br/><a href='mailto:anne.morris@state.mn.us?subject=Latitude/Longitude&body=Latitude: " + latitude.toFixed(4) + " %0D%0ALongitude: " + longitude.toFixed(4) + "'" +
     "<br/><br/>E-mail Coordinates</a>"
   );
   map.infoWindow.show(event.mapPoint, map.getInfoWindowAnchor(event.screenPoint));
