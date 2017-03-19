@@ -50,3 +50,8 @@ li {
   margin: auto;
   max-width: 80%;
 }
+
+/* Hide elements on smaller devices/screens */
+@media screen and (min-width: 0px) and (max-width: 750px) {
+ #help { display: none; }
+ }
